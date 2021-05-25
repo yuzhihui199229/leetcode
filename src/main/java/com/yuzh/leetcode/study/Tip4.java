@@ -39,7 +39,6 @@ public class Tip4 {
         return s;
     }
 
-
     public String longestCommonPrefix1(String[] strs) {
         if (strs.length == 0) return "";
         //公共前缀比所有字符串都短，随便选一个先
@@ -53,5 +52,4 @@ public class Tip4 {
         }
         return s;
     }
-
 }
