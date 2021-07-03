@@ -3,10 +3,9 @@ package com.yuzh.leetcode.study;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.util.StopWatch;
 
-import java.security.KeyStore;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 class Tip9Test {
@@ -16,10 +15,11 @@ class Tip9Test {
 
     @Test
     void lengthOfLastWord() {
+//        StopWatch stopWatch=new StopWatch();
         String s = "Hello World";
-        int len = tip9.lengthOfLastWord(s);
+//        int len = tip9.lengthOfLastWord(s);
         int len1 = tip9.lengthOfLastWord1(s);
-        assertEquals(5,len);
+//        assertEquals(5,len);
         assertEquals(5,len1);
     }
 }
