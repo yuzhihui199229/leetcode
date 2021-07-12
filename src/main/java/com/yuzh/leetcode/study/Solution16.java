@@ -26,7 +26,7 @@ package com.yuzh.leetcode.study;
  * 这是 H 指数 的延伸题目，本题中的 citations 数组是保证有序的。
  * 你可以优化你的算法到对数时间复杂度吗？
  */
-public class Solution {
+public class Solution16 {
     public int hIndex(int[] citations) {
         return 0;
     }
