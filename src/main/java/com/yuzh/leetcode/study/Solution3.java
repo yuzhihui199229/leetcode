@@ -5,8 +5,6 @@ package com.yuzh.leetcode.study;
  * <p>
  * 给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。
  * <p>
- * <p>
- * <p>
  * 示例 1:
  * <p>
  * 输入: s = "abcabcbb"
@@ -36,13 +34,7 @@ package com.yuzh.leetcode.study;
  */
 class Solution3 {
     public int lengthOfLongestSubstring(String s) {
-        String[] strs = s.split("");
-        StringBuilder sb=null;
-        int len =strs.length;
-        while (len>0) {
 
-            len--;
-        }
         return 0;
     }
 }
