@@ -2,6 +2,9 @@ package com.yuzh.leetcode.study;
 
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 13. 罗马数字转整数
  * 罗马数字包含以下七种字符: I， V， X， L，C，D 和 M。
@@ -63,12 +66,41 @@ class Solution13 {
     public int romanToInt(String s) {
         int a=0;
         int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-        String[] symbols = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-        for (int i = 0; i < values.length; i++) {
-            int value=values[i];
-            String symbol=symbols[i];
-
+        String[] symbols = {"M", "A", "D", "B", "C", "E", "L", "F", "X", "G", "V", "H", "I"};
+        String s1 = s.replace("CM", "A");
+        String s2 = s1.replace("CD", "B");
+        String s3 = s2.replace("XC", "E");
+        String s4 = s3.replace("XL", "F");
+        String s5 = s4.replace("IX", "G");
+        String s6 = s5.replace("IV", "H");
+        String[] strs = s6.split("");
+        for (String str : strs) {
+            for (int i = 0; i < values.length; i++) {
+                if (str.equals(symbols[i]))
+                    a += values[i];
+            }
         }
-        return 0;
+        return a;
+    }
+
+    /*题解*/
+    Map<Character, Integer> symbolValues = new HashMap<Character, Integer>() {{
+        put('I', 1);
+        put('V', 5);
+        put('X', 10);
+        put('L', 50);
+        put('C', 100);
+        put('D', 500);
+        put('M', 1000);
+    }};
+
+    public int romanToInt1(String s) {
+        int a=0;
+        int len = s.length();
+        for (int i = 0; i < len; i++) {
+            int value = symbolValues.get(s.charAt(i));
+            a=(i < len - 1 && value < symbolValues.get(s.charAt(i + 1)))?(a-=value):(a+=value);
+        }
+        return a;
     }
 }

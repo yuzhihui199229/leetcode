@@ -1,77 +1,67 @@
 package com.yuzh.leetcode.study;
 
+import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
- * 两数相加
+ * 17. 电话号码的字母组合
  * <p>
- * 给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。
+ * 给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。
  * <p>
- * 请你将两个数相加，并以相同形式返回一个表示和的链表。
- * <p>
- * 你可以假设除了数字 0 之外，这两个数都不会以 0 开头。
- * <p>
- * <p>
+ * 给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。
  * <p>
  * 示例 1：
  * <p>
- * <p>
- * 输入：l1 = [2,4,3], l2 = [5,6,4]
- * 输出：[7,0,8]
- * 解释：342 + 465 = 807.
+ * 输入：digits = "23"
+ * 输出：["ad","ae","af","bd","be","bf","cd","ce","cf"]
  * 示例 2：
  * <p>
- * 输入：l1 = [0], l2 = [0]
- * 输出：[0]
+ * 输入：digits = ""
+ * 输出：[]
  * 示例 3：
  * <p>
- * 输入：l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
- * 输出：[8,9,9,9,0,0,0,1]
+ * 输入：digits = "2"
+ * 输出：["a","b","c"]
+ * <p>
+ * <p>
+ * 提示：
+ * <p>
+ * 0 <= digits.length <= 4
+ * digits[i] 是范围 ['2', '9'] 的一个数字。
  */
-class ListNode {
-    int val;
-    ListNode next;
+@Component
+class Solution17 {
+    public List<String> letterCombinations(String digits) {
+        List<String> combinations=new ArrayList<>();
+        if (StringUtils.hasLength(digits))
+            return combinations;
+        Map<String,String[]> map =new HashMap<>();
+        map.put("2",new String[]{"a","b","c"});
+        map.put("3",new String[]{"d","e","f"});
+        map.put("4",new String[]{"g","h","i"});
+        map.put("5",new String[]{"j","k","l"});
+        map.put("6",new String[]{"m","n","o"});
+        map.put("7",new String[]{"p","q","r","s"});
+        map.put("8",new String[]{"t","u","v"});
+        map.put("9",new String[]{"w","x","y","z"});
+        String[] strs = digits.split("");
 
-    ListNode() {
-    }
-
-    ListNode(int val) {
-        this.val = val;
-    }
-
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
-    }
-}
-
-public class Solution17 {
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         return null;
     }
 
-    //精选解法
-    public ListNode addTwoNumbers1(ListNode l1, ListNode l2) {
-        ListNode pre = new ListNode(0);
-        ListNode cur = pre;
-        int carry = 0;
-        while(l1 != null || l2 != null) {
-            int x = l1 == null ? 0 : l1.val;
-            int y = l2 == null ? 0 : l2.val;
-            int sum = x + y + carry;
+    private String backtrack(List<String> combinations,String s, Map<String, String[]> map) {
+        if (StringUtils.hasLength(s)) {
+            String[] strings = map.get(s);
+            for (String string : strings) {
 
-            carry = sum / 10;
-            sum = sum % 10;
-            cur.next = new ListNode(sum);
-
-            cur = cur.next;
-            if(l1 != null)
-                l1 = l1.next;
-            if(l2 != null)
-                l2 = l2.next;
+            }
         }
-        if(carry == 1) {
-            cur.next = new ListNode(carry);
-        }
-        return pre.next;
+        return null;
     }
-}
 
+}
