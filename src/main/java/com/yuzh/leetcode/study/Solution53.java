@@ -43,7 +43,9 @@ import org.springframework.stereotype.Component;
 @Component
 class Solution53 {
     public int maxSubArray(int[] nums) {
-        
+        for (int num : nums) {
+
+        }
         return 0;
     }
 }
