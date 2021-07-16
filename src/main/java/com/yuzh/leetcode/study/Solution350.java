@@ -2,9 +2,8 @@ package com.yuzh.leetcode.study;
 
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 350. 两个数组的交集 II
@@ -36,6 +35,13 @@ import java.util.Set;
 @Component
 class Solution350 {
     public int[] intersect(int[] nums1, int[] nums2) {
+        if (nums1.length>nums2.length)
+            return intersect(nums2,nums1);
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int num : nums1) {
+            Integer count = map.getOrDefault(num, 0)+1;
+            map.put(num,count);
+        }
         return null;
     }
 }
